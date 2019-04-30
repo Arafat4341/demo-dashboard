@@ -1,3 +1,7 @@
+
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +32,11 @@
 </head>
 
 <body id="page-top">
+  <iframe border="0" frameborder="0" 
+    width="800"
+    height="600"
+    src="https://www.seektable.com/public/report/ce6d5f6813904be3aef6ec40ab001279"></iframe>
+  
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top dnav">
 
@@ -242,53 +251,58 @@
         var data = new google.visualization.arrayToDataTable([
           ['Timeperiod', 'No. of people'],
           ['8am - 10am',  300],
-          ['10am - 12pm',  250],
-          ['12pm - 2am',  150],
-          ['2pm - 4pm',  200],
-          ['4pm - 6pm',  350],
-          ['6pm - 8pm',  450],
-          ['8 pm - 10 pm',  550] ]);
+          ['10am-12pm',  250],
+          ['12pm-2am',  150],
+          ['2pm-4pm',  200],
+          ['4pm-6pm',  350],
+          ['6pm-8pm',  450],
+          ['8pm-10pm',  550] ]);
 
         // Instantiate and draw the chart
-        var chart = new google.visualization.ColumnChart(document.getElementById('column1'));
+        var chart = new google.visualization.BarChart(document.getElementById('column1'));
         chart.draw(data, options);
       }
 
       function drawChart2(){
         
         // Set chart option
-        var options = {title:'Population in millions'};
+        var options = {title:'Gender distribution of visitors'};
 
         // Define the chart to be drawn
         var data = new google.visualization.arrayToDataTable([
-                  ['Year', 'Asia', 'Europe'],
-                  ['2012',  900, 1200],
-                  ['2013',  1000, 1100],
-                  ['2014',  1170, 500],
-                  ['2015',  1250, 800],
-                  ['2016',  1530, 1000] ]);
+                  ['Timeperiod', 'Male', 'Female'],
+                  ['8am - 10am',  200, 100],
+                  ['10am-12pm',  150, 100],
+                  ['12pm-2am',  50, 100],
+                  ['2pm-4pm',  75, 125],
+                  ['4pm-6pm',  150, 200],
+                  ['6pm-8pm',  200, 250],
+                  ['8pm-10pm',  200, 350] ]);
 
         // Instantiate and draw the chart
-        var chart = new google.visualization.ColumnChart(document.getElementById('column2'));
+        var chart = new google.visualization.BarChart(document.getElementById('column2'));
         chart.draw(data, options);
       }
 
       function drawChart3(){
         
         // Set chart option
-        var options = {title:'Population in millions'};
+        var options = {title:'Customer gathering on different parts of the shop',
+                        legend: { position: 'top', maxLines: 3 },
+                        bar: { groupWidth: '75%' }};
 
         // Define the chart to be drawn
         var data = new google.visualization.arrayToDataTable([
-                  ['Year', 'Asia', 'Europe'],
-                  ['2012',  900, 1200],
-                  ['2013',  1000, 1100],
-                  ['2014',  1170, 500],
-                  ['2015',  1250, 800],
-                  ['2016',  1530, 1000] ]);
+                  ['parts', 'Morning(8am - 12pm)', 'Noon(12pam - 4pm)', 'Evening(4pm - 10pm)'],
+                  ['Grocery',  100, 100, 450],
+                  ['Fish & Meat',  150, 150, 450],
+                  ['Vegetables & Fruits',  150, 50, 300],
+                  ['Fashion & cosmetics',  50, 85, 200],
+                  ["Children's corner",  20, 25, 100],
+                  ["Fun & Entertainment",  5, 15, 120] ]);
 
         // Instantiate and draw the chart
-        var chart = new google.visualization.PieChart(document.getElementById('pie'));
+        var chart = new google.visualization.BarChart(document.getElementById('pie'));
         chart.draw(data, options);
       }
 
