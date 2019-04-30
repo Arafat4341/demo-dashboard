@@ -20,6 +20,10 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart']});
+  </script>
 
 </head>
 
@@ -143,8 +147,14 @@
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
             Summary Statistics</div>
-          <div class="card-body">
-            <div class="infogram-embed" data-id="fa22b914-1013-4c46-a1eb-5447e4588aa9" data-type="interactive" data-title="retail dashboard"></div><script>!function(e,t,s,i){var n="InfogramEmbeds",o=e.getElementsByTagName("script")[0],d=/^http:/.test(e.location)?"http:":"https:";if(/^\/{2}/.test(i)&&(i=d+i),window[n]&&window[n].initialized)window[n].process&&window[n].process();else if(!e.getElementById(s)){var r=e.createElement("script");r.async=1,r.id=s,r.src=i,o.parentNode.insertBefore(r,o)}}(document,0,"infogram-async","https://e.infogram.com/js/dist/embed-loader-min.js");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/fa22b914-1013-4c46-a1eb-5447e4588aa9" style="color:#989898!important;text-decoration:none!important;" target="_blank">retail dashboard</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
+
+
+
+          <div class="row card-body">
+            <div class="col-md-6" id="column1" style="height: 400px;"></div>
+            <div class="col-md-6" id="column2" style="height: 400px;"></div>
+            <div class="col-md-6" id="pie" style="height: 400px;"></div>
+            <div class="col-md-6" id="stacked" style="height: 400px;"></div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
@@ -222,7 +232,89 @@
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
   <script src="js/demo/chart-area-demo.js"></script>
+  <script type="text/javascript">
+      function drawChart1(){
+        
+        // Set chart option
+        var options = {title:'Population in millions'};
 
+        // Define the chart to be drawn
+        var data = new google.visualization.arrayToDataTable([
+          ['Year', 'Asia'],
+          ['2012',  900],
+          ['2013',  1000],
+          ['2014',  1170],
+          ['2015',  1250],
+          ['2016',  1530] ]);
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.ColumnChart(document.getElementById('column1'));
+        chart.draw(data, options);
+      }
+
+      function drawChart2(){
+        
+        // Set chart option
+        var options = {title:'Population in millions'};
+
+        // Define the chart to be drawn
+        var data = new google.visualization.arrayToDataTable([
+                  ['Year', 'Asia', 'Europe'],
+                  ['2012',  900, 1200],
+                  ['2013',  1000, 1100],
+                  ['2014',  1170, 500],
+                  ['2015',  1250, 800],
+                  ['2016',  1530, 1000] ]);
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.ColumnChart(document.getElementById('column2'));
+        chart.draw(data, options);
+      }
+
+      function drawChart3(){
+        
+        // Set chart option
+        var options = {title:'Population in millions'};
+
+        // Define the chart to be drawn
+        var data = new google.visualization.arrayToDataTable([
+                  ['Year', 'Asia', 'Europe'],
+                  ['2012',  900, 1200],
+                  ['2013',  1000, 1100],
+                  ['2014',  1170, 500],
+                  ['2015',  1250, 800],
+                  ['2016',  1530, 1000] ]);
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.PieChart(document.getElementById('pie'));
+        chart.draw(data, options);
+      }
+
+      function drawChart4(){
+        
+        // Set chart option
+        var options = {title:'Population in millions', isStacked: true};
+
+        // Define the chart to be drawn
+        var data = new google.visualization.arrayToDataTable([
+                  ['Year', 'Asia', 'Europe'],
+                  ['2012',  900, 1200],
+                  ['2013',  1000, 1100],
+                  ['2014',  1170, 500],
+                  ['2015',  1250, 800],
+                  ['2016',  1530, 1000] ]);
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.ColumnChart(document.getElementById('stacked'));
+        chart.draw(data, options);
+      }
+
+      google.charts.setOnLoadCallback(drawChart1);
+      google.charts.setOnLoadCallback(drawChart2);
+      google.charts.setOnLoadCallback(drawChart3);
+      google.charts.setOnLoadCallback(drawChart4);
+
+    </script>
 </body>
 
 </html>
