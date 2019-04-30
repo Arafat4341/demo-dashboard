@@ -236,16 +236,18 @@
       function drawChart1(){
         
         // Set chart option
-        var options = {title:'Population in millions'};
+        var options = {title:'No. of visitors'};
 
         // Define the chart to be drawn
         var data = new google.visualization.arrayToDataTable([
-          ['Year', 'Asia'],
-          ['2012',  900],
-          ['2013',  1000],
-          ['2014',  1170],
-          ['2015',  1250],
-          ['2016',  1530] ]);
+          ['Timeperiod', 'No. of people'],
+          ['8am - 10am',  300],
+          ['10am - 12pm',  250],
+          ['12pm - 2am',  150],
+          ['2pm - 4pm',  200],
+          ['4pm - 6pm',  350],
+          ['6pm - 8pm',  450],
+          ['8 pm - 10 pm',  550] ]);
 
         // Instantiate and draw the chart
         var chart = new google.visualization.ColumnChart(document.getElementById('column1'));
